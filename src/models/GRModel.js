@@ -11,11 +11,20 @@ module.exports = {
         });
     },
     add: (ch4_GR, co2_GR, h2_GR, co_GR, data_hora_GR) => {
-        const query = `INSERT INTO GasesReforma VALUES (?, ?, ?, ?, ?, ?);`;
+        const query = `INSERT INTO GasesReforma VALUES (?, ?, ?, ?, ?, ?, ?);`;
         return new Promise((resolve, reject) => {
-            db.query(query, [0, ch4_GR, co2_GR, h2_GR, co_GR, data_hora_GR], (error, results) => {
+            db.query(query, [0, ch4_GR, co2_GR, h2_GR, co_GR, data_hora_GR, 1], (error, results) => {
                 if (error) { reject(error); return; }
                 resolve(results.insertId);
+            })
+        });
+    },
+    att: (ch4_GP, co2_GP, h2_GR, co_GR, data_hora_GR, id_gases_reforma) => {
+        const query = `UPDATE GasesReforma SET ch4_GR = ?,co2_GR = ?,h2_GR = ?,co_GR = ?,data_hora_GR = ? WHERE id_gases_reforma = ?;`;
+        return new Promise((resolve, reject) => {
+            db.query(query, [ch4_GP, co2_GP, h2_GR, co_GR, data_hora_GR,id_gases_reforma], (error, results) => {
+                if (error) { reject(error); return; }
+                resolve(results);
             })
         });
     }
