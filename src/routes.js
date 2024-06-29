@@ -9,6 +9,7 @@ const GRController = require('./controllers/GRController');
 const PSAController = require('./controllers/PSAController');
 const CelulaController = require('./controllers/CelulaController');
 const SEController = require('./controllers/SEController');
+const VazaoController = require('./controllers/VazaoController')
 
 router.get('/reforma', ReformaController.all);
 
@@ -21,6 +22,9 @@ router.put('/gasesPurificacao', GPController.att);
 router.get('/gasesReforma', GRController.all);
 router.post('/gasesReforma', GRController.new);
 router.put('/gasesReforma', GRController.att);
+
+router.get('/vazao', VazaoController.all);
+router.put('/vazao', VazaoController.att);
 
 router.get('/psa', PSAController.all);
 

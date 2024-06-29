@@ -13,7 +13,7 @@ server.use(cors());
 server.use(bodyParser.urlencoded({ extended: false }))
 server.use('/api', routes);
 
-server.listen(process.env.PORT, () => {
-    console.log(`Listing on: http://localhost:${process.env.PORT}`)
+server.listen(3001, () => {
+    console.log(`Listing on: http://localhost:3001`)
 })
 
